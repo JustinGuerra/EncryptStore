@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 function createWindow () {
-  let preload = path.resolve(__dirname, 'Index.js');
+  let preload = path.resolve(__dirname, 'index/Index.js');
 
   let win = new BrowserWindow({
     width: 800,
@@ -14,7 +14,7 @@ function createWindow () {
     }
   });
 
-  win.loadFile('src/main/index.html');
+  win.loadFile(path.resolve(__dirname, 'index/index.html'));
 };
 
 app.on('ready', createWindow);
