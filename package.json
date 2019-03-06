@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder --publish never",
     "start": "electron ."
   },
   "repository": {
@@ -20,12 +20,6 @@
   },
   "build": {
     "appId": "org.encrypt-store",
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
     "win": {
       "target": "NSIS"
     }
