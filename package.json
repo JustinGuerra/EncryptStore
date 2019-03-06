@@ -19,6 +19,7 @@
   "homepage": "https://github.com/DanielHix/EncryptStore#readme",
   "devDependencies": {
     "electron": "^4.0.7",
+    "electron-builder": "^20.38.5",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
