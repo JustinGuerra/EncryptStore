@@ -2,23 +2,38 @@
   "name": "encryptstore",
   "version": "0.1.0",
   "description": "This is a secure way to store things such as passwords, and logins for applications and websites.",
-  "main": "src/main.js",
+  "main": "src/Main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "start": "electron ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DanielHix/EncryptStore.git"
   },
-  "author": "Daniel Hix & Justin Guerra",
+  "author": "Encrypt Store Open Source",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/DanielHix/EncryptStore/issues"
   },
+  "build": {
+    "appId": "org.encrypt-store",
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS"
+    }
+  },
   "homepage": "https://github.com/DanielHix/EncryptStore#readme",
   "devDependencies": {
     "electron": "^4.0.7",
+    "electron-builder": "^20.38.5",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
