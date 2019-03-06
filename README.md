@@ -1,4 +1,6 @@
-# EncryptStore
+# EncryptStore 
+[![Build Status](https://dev.azure.com/EncryptStore/Encrypt%20Store/_apis/build/status/EncryptStore.CI?branchName=master)](https://dev.azure.com/EncryptStore/Encrypt%20Store/_build/latest?definitionId=1&branchName=master)
+
 This is a secure way to store things such as passwords, and logins for applications and websites.
 
 ## How to build/run
