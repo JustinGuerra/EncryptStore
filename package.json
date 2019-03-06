@@ -20,12 +20,6 @@
   },
   "build": {
     "appId": "org.encrypt-store",
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
     "win": {
       "target": "NSIS"
     }
