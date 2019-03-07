@@ -1,9 +1,13 @@
-# EncryptStore
+# EncryptStore 
+[![Build Status](https://dev.azure.com/EncryptStore/Encrypt%20Store/_apis/build/status/EncryptStore.CI?branchName=master)](https://dev.azure.com/EncryptStore/Encrypt%20Store/_build/latest?definitionId=1&branchName=master)
+
 This is a secure way to store things such as passwords, and logins for applications and websites.
 
 ## How to build/run
-__You will need Node.js installed with NPM to run this project__
+You will need to install the following software onto your machine.
 
-Just clone the repository and then open a command window (either in your editor or via powershell) and run ```npm install``` in the root directory of the repo. This should install all of your needed packages.
+- [Node.js](https://nodejs.org/en/)
 
-After this you can run ```npm run start``` and this should boot up the project. Everything else is up to you!
+- [Yarn](https://yarnpkg.com/en/)
+
+Once those are installed you will then run ```yarn install``` in the root of the cloned repository. Once this is done you can type ```yarn start``` and run the project. The reload and developer tools can be found under the "view" tab for now (or by their short cuts).
