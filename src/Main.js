@@ -1,10 +1,11 @@
 const { app, BrowserWindow, Menu, Tray } = require('electron');
 const path = require('path');
+let win;
 
-function createWindow () {
-  let preload = path.resolve(__dirname, 'index/Index.js');
+const createWindow = () => {
+  const preload = path.resolve(__dirname, 'index/Index.js');
 
-  let win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -14,16 +15,39 @@ function createWindow () {
     }
   });
 
+  win.on('close', event => {
+    event.preventDefault();
+    win.hide();
+  });
+
   win.loadFile(path.resolve(__dirname, 'index/index.html'));
 };
 
 const addInTray = () => {
   const tray = new Tray(path.join(__dirname, 'assets/tray.ico'));
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Search for Login', type: 'normal' },
-    { label: 'Open', type: 'normal' },
-    { label: 'Settings', type: 'normal' },
-    { label: 'Close', type: 'normal' }
+    {
+      label: 'Search for login',
+      type: 'normal'
+    },
+    {
+      label: 'Open',
+      type: 'normal',
+      click () {
+        win.show();
+      }
+    },
+    {
+      label: 'Settings',
+      type: 'normal'
+    },
+    {
+      label: 'Exit',
+      type: 'normal',
+      click () {
+        app.exit();
+      }
+    }
   ]);
   tray.setToolTip('EncryptStore');
   tray.setContextMenu(contextMenu);
@@ -34,6 +58,6 @@ app.on('ready', () => {
   addInTray();
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   app.quit();
 });
