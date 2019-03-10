@@ -1,9 +1,11 @@
-# EncryptStore 
+# Encrypt Store
+
 [![Build Status](https://dev.azure.com/EncryptStore/Encrypt%20Store/_apis/build/status/EncryptStore.CI?branchName=master)](https://dev.azure.com/EncryptStore/Encrypt%20Store/_build/latest?definitionId=1&branchName=master)
 
-This is a secure way to store things such as passwords, and logins for applications and websites.
+This is a secure way to store things such as passwords, and logins for applications and websites. Built with [Electron](https://electronjs.org/) and [React](https://reactjs.org/)!
 
 ## How to build/run
+
 You will need to install the following software onto your machine.
 
 - [Node.js](https://nodejs.org/en/)
@@ -25,6 +27,7 @@ For contributing to the project we follow the "fork-and-pull" Git workflow, and 
 NOTE: Be sure to merge the latest "upstream" before making a pull request. Also make sure to follow our code of conduct for all interaction in the project.
 
 ### Pull Request Process
+
 1. You must have 1-2 reviewers to sign off on your work
 2. All build checks must pass
 3. All test checks must pass (coming soon to a repo near you)
