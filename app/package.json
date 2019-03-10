@@ -1,0 +1,46 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.11.0",
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "electron-is-dev": "^1.0.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-hot-loader": "^4.5.3",
+    "react-scripts": "2.1.8",
+    "typescript": "^3.3.3333"
+  },
+  "main": "public/Electron.js",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "electron-builder": "^20.38.5",
+    "electron-prebuilt-compile": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-react": "^7.12.4",
+    "wait-on": "^3.2.0"
+  }
+}
