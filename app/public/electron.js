@@ -12,6 +12,7 @@ const Tray = electron.Tray;
 
 let mainWindow;
 let iconPath;
+let tray;
 
 if(platform === 'darwin'){
   iconPath =  isDev ? `${path.join( __dirname, '../public/assets/tray.png')}` : `file://${path.join( __dirname, '../build/assets/tray.png')}`;
@@ -40,7 +41,7 @@ const createWindow = () => {
 };
 
 const addInTray = () => {
-  const tray = new Tray(iconPath);
+  tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Search',
