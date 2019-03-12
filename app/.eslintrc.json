@@ -31,10 +31,6 @@
       2
     ],
     "no-undef": "off",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "quotes": [
       "error",
       "single"
