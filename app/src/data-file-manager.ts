@@ -12,21 +12,21 @@ export default class DataFileManager{
 
     public dataFile: DataFile;
 
-    constructor(dataFilePath?:string){
+    constructor(hash: string, dataFilePath?:string){
         if(dataFilePath){
 
         }else{
             //TODO we need to log this
-            this.generateNewFile().catch(error => console.log(error));
+            this.generateNewFile(hash).catch(error => console.log(error));
         }
     }
 
     //To generate a file we need a file path
     //if we don't have one then we'll just make one at our current path
     //I don't think this will work though and we should use appData possibly.
-    async generateNewFile(directoryPath = __dirname) {
+    async generateNewFile(hash: string, directoryPath = __dirname) {
         let filePath: string = path.join(directoryPath, 'data.esdf');
-        let dataFile: DataFile = new DataFile();
+        let dataFile: DataFile = new DataFile(hash);
 
         await writeFile( filePath, JSON.stringify(dataFile));
     }
