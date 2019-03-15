@@ -4,6 +4,10 @@ import { promisify } from 'util';
 import DataFile from './models/data-file';
 
 const writeFile = promisify(fs.writeFile);
+const checkFile = promisify(fs.access);
+const fsStat = promisify(fs.stat);
+
+let dataFileName: string = 'data.esdf';
 
 //This will be used to manage the data file
 //to initialize you need to pass in a path to the data file,
@@ -12,13 +16,18 @@ export default class DataFileManager{
 
     public dataFile: DataFile;
 
-    constructor(hash: string, dataFilePath?:string){
-        if(dataFilePath){
+    constructor(hash: string, dataFilePath: string){
 
-        }else{
-            //TODO we need to log this
-            this.generateNewFile(hash).catch(error => console.log(error));
-        }
+            this.getPathStats(dataFilePath)
+                .then( statsSuccess => {
+                    //There was no error codes and so we got a stat object
+                    console.log(statsSuccess);
+                })
+                .catch( statsError =>{
+                    //There was an error code
+                    console.log(statsError);
+
+                });
     }
 
     //To generate a file we need a file path
@@ -29,5 +38,9 @@ export default class DataFileManager{
         let dataFile: DataFile = new DataFile(hash);
 
         await writeFile( filePath, JSON.stringify(dataFile));
+    }
+
+    async getPathStats(filePath: string): Promise<fs.Stats> {
+        return await fsStat(filePath);
     }
 }
