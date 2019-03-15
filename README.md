@@ -2,6 +2,8 @@
 
 [![Build Status](https://dev.azure.com/EncryptStore/Encrypt%20Store/_apis/build/status/EncryptStore.CI?branchName=master)](https://dev.azure.com/EncryptStore/Encrypt%20Store/_build/latest?definitionId=1&branchName=master)
 [![Coverage Status](https://coveralls.io/repos/github/encryptstore/EncryptStore/badge.svg?branch=master)](https://coveralls.io/github/encryptstore/EncryptStore?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/76bd1752357efb8245a3/maintainability)](https://codeclimate.com/github/encryptstore/EncryptStore/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/76bd1752357efb8245a3/test_coverage)](https://codeclimate.com/github/encryptstore/EncryptStore/test_coverage)
 
 This is a secure way to store things such as passwords, and logins for applications and websites. Built with [Electron](https://electronjs.org/) and [React](https://reactjs.org/)!
 
