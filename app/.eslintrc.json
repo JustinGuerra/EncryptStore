@@ -1,53 +1,35 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true
-  },
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "json"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "rules": {
-    "indent": [
-      "error",
-      2
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "pluigin:prettier/recommended"
     ],
-    "no-undef": "off",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-unused-vars": "warn",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ]
-  }
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint", "json", "prettier"],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "rules": {
+        "indent": ["error", 2],
+        "no-undef": "off",
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-unused-vars": "warn",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/indent": ["error", 2],
+        "prettier/prettier": "error"
+    }
 }

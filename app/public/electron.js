@@ -2,6 +2,7 @@ const electron = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 const platform = require('os').platform();
+import DataFileManager from '../src/data-file-manager';
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -12,6 +13,7 @@ const Tray = electron.Tray;
 
 let mainWindow;
 let iconPath;
+let tray;
 
 if(platform === 'darwin'){
   iconPath =  isDev ? `${path.join( __dirname, '../public/assets/tray.png')}` : `file://${path.join( __dirname, '../build/assets/tray.png')}`;
@@ -21,9 +23,9 @@ if(platform === 'darwin'){
 const mainWindowPath = isDev ? 'http://localhost:3000' : `file://${path.join( __dirname, '../build/index.html')}`;
 
 const createWindow = () => {
-  mainWindow = new BrowserWindow({ 
+  mainWindow = new BrowserWindow({
     icon: iconPath,
-    width: 900, 
+    width: 900,
     height: 680,
     webPreferences: {
       nodeIntegration: false,
@@ -40,7 +42,7 @@ const createWindow = () => {
 };
 
 const addInTray = () => {
-  const tray = new Tray(iconPath);
+  tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Search',
@@ -72,6 +74,7 @@ const addInTray = () => {
 app.on('ready', () => {
   createWindow();
   addInTray();
+  let _dataFileManager = new DataFileManager('Thisisahash', path.join(__dirname, 'data.esdf'));
 });
 
 app.on('window-all-closed', () => {
