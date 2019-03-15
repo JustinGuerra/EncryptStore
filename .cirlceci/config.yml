@@ -1,40 +1,31 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
-    build:
+    node:
+        working_directory: ~/encryptstore/app
         docker:
-            # specify the version you desire here
             - image: circleci/node:8
-
-            # Specify service dependencies here if necessary
-            # CircleCI maintains a library of pre-built images
-            # documented at https://circleci.com/docs/2.0/circleci-images/
-            # - image: circleci/mongo:3.4.4
-
-        working_directory: ~/app
-
         steps:
             - checkout
+
             - restore_cache:
-                  key: dependency-cache-{{ checksum "package.json" }}
-            - run:
-                  name: Setup Dependencies
-                  command: yarn
-            - run:
-                  name: Setup Code Climate test-reporter
-                  command: |
-                      curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-                      chmod +x ./cc-test-reporter
+                  key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+            - restore_cache:
+                  key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+            - run: yarn install
+
             - save_cache:
-                  key: dependency-cahce-{{ checksum "package.json" }}
+                  key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
                   paths:
-                      - ./node_modules
-            - run:
-                  name: Run Tests and Coverage
-                  command: |
-                      ./cc-test-reporter before-build
-                      yarn test -- --coverage
-                      ./cc-test-reporter after-build --exit-code $?
+                      - ~/.cache/yarn
+
+            - save_cache:
+                  key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+                  paths:
+                      - node_modules
+
+            - persist_to_workspace:
+                  root: ~/encryptstore/app
+                  paths:
+                      - node_modules
